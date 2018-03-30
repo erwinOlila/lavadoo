@@ -1,0 +1,30 @@
+<form [formGroup]="user_details" (ngSubmit)="onSubmit">
+  <mat-form-field>
+    <input matInput placeholder="First Name" formControlName="first" type="text" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Last Name" formControlName="last" type="text" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Email address" formControlName="email" type="email" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Password" formControlName="password" type="password" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Confirm Password" formControlName="password_2" type="password" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Mobile number" formControlName="number" type="text" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Location" formControlName="location" type="text" required>
+    <mat-hint>To be updated based on GPS</mat-hint>
+  </mat-form-field>
+</form>
