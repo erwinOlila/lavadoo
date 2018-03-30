@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
@@ -7,10 +7,24 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./create.component.scss']
 })
 export class CreateComponent implements OnInit {
-
-  constructor() { }
+  user_details: FormGroup;
+  constructor() {
+    this.user_details = new FormGroup({
+      first:            new FormControl(),
+      last:             new FormControl(),
+      email:            new FormControl(),
+      password:         new FormControl(),
+      password_2:       new FormControl(),
+      number:           new FormControl(),
+      location:         new FormControl()
+    });
+   }
 
   ngOnInit() {
+  }
+
+  onSubmit () {
+    console.log('clicked');
   }
 
 }
