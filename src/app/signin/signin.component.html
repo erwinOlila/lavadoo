@@ -1,3 +1,14 @@
-<p>
-  signin works!
-</p>
+<form [formGroup]="login_details" (ngSubmit)="login()">
+  <mat-form-field class="email">
+      <input matInput placeholder="Email" formControlName="email"  type="email">
+  </mat-form-field>
+
+  <mat-form-field class="password">
+      <input matInput placeholder="Password" formControlName="password"  type="password">
+  </mat-form-field>
+  
+  <button mat-raised-button color="primary" type="submit">Login</button>
+
+</form>
+
+

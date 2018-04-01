@@ -56,6 +56,17 @@ export class AuthService {
     });
   }
 
+  login = (email: string, password: string) => {
+    return this.afAuth.auth.signInWithEmailAndPassword(email, password)
+    .then(user => {
+      if (user !== null) {
+        this.user = user;
+      }
+    }).catch(err => {
+      console.log(err);
+    });
+  }
+
   logOut = (): void => {
     this.db.afDb.object('users/' + this.user.uid).update({
       online: false
