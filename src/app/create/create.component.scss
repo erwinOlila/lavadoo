@@ -1,7 +1,12 @@
 form {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     width: 400px;
     margin: auto;
-    margin-top: 2em; 
+    margin-top: 3em; 
+    grid-gap: 15px;
+}
+
+.whole {
+    grid-column: 1/3;
 }
