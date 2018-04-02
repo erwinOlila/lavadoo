@@ -9,13 +9,14 @@ import * as firebase from 'firebase/app';
 @Injectable()
 export class AuthService {
   state$: Observable<firebase.User>;
-  user:   firebase.User;
-  form_data: User;
+  public profile$: Observable<firebase.User>;
+  public user:   firebase.User;
+  public form_data: User;
 
   constructor(public afAuth: AngularFireAuth, private db: DataService, private router: Router ) {
     this.state$ = afAuth.authState;
     this.state$.subscribe(user => {
-      if (user) {
+      if (user !== null) {
         this.user = user;
         if ((user.displayName === null) && (this.form_data !== undefined)) {
           user.updateProfile({
@@ -42,7 +43,11 @@ export class AuthService {
             console.log(err);
           });
         } else {
-          this.router.navigate(['/dashboard']);
+          const path: string = 'users/' + this.user.uid;
+          this.profile$ = db.getUser(path).valueChanges();
+          if(this.profile$) {
+            this.router.navigate(['/dashboard']);
+          }
         }
       }
     });

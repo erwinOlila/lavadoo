@@ -26,7 +26,6 @@ export class CreateComponent implements OnInit {
   }
 
   onSubmit = (): void => {
-    console.log('clicked');
     const data: User = this.user_details.value;
     this.auth.form_data = data;
     this.auth.addUser(data.email, data.password);

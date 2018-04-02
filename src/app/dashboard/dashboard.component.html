@@ -1,1 +1,15 @@
+<div *ngIf="(auth.profile$ | async) as profile; else loading">
+    <div  id="details">
+        <img [src]="profile.photoURL" alt="">
+        <div id="context">
+            <p><span class="section">Name:</span>       {{ profile.displayName}}</p>
+            <p><span class="section">email:</span>       {{ profile.email}}</p>
+            <p><span class="section">address:</span>     {{ profile.location}}</p>
+        </div>
+    </div>
+</div>
 <button mat-raised-button color="primary" (click)="logOut()">Log Out</button>
+<button mat-raised-button color="warn" >Check Orders</button>
+<ng-template #loading>
+    Loading user data...
+</ng-template>

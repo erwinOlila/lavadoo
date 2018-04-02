@@ -8,4 +8,8 @@ export class DataService {
 
   constructor(public afDb: AngularFireDatabase) { }
 
+  getUser = (path: string): AngularFireObject<firebase.User> => {
+    return this.afDb.object<firebase.User>(path);
+  }
 }
+
