@@ -12,7 +12,7 @@ import { Observable } from 'rxjs/Observable';
 export class DashboardComponent implements OnInit {
   profile$: Observable<firebase.User>;
   uid: string;
-  constructor(private auth: AuthService, private db: DataService) {
+  constructor(public auth: AuthService, public db: DataService) {
    }
 
   ngOnInit() {
