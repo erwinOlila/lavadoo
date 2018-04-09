@@ -18,7 +18,9 @@ export class CreateComponent implements OnInit {
       password:         new FormControl(),
       password_2:       new FormControl(),
       number:           new FormControl(),
-      location:         new FormControl()
+      location:         new FormControl(),
+      lat:              new FormControl(),
+      long:             new FormControl()
     });
    }
 
@@ -30,4 +32,19 @@ export class CreateComponent implements OnInit {
     this.auth.form_data = data;
     this.auth.addUser(data.email, data.password);
   }
+
+  getLocation = (): void => {
+    if (confirm('Allow this site to access your current location?')) {
+      window.navigator.geolocation.getCurrentPosition(pos => {
+        console.log(pos.coords);
+        this.user_details.value.lat  = pos.coords.latitude;
+        this.user_details.value.long = pos.coords.longitude;
+        console.log(this.user_details.value);
+      }, err => {
+        console.log(err);
+      });
+    }
+  }
 }
+
+

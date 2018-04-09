@@ -23,9 +23,9 @@
     <input matInput placeholder="Confirm Password" formControlName="password_2" type="password" required>
   </mat-form-field>
 
-  <mat-form-field class="whole">
+  <!-- <mat-form-field class="whole">
     <input matInput placeholder="Location" formControlName="location" type="text" required>
-    <mat-hint>To be updated based on GPS</mat-hint>
-  </mat-form-field>
+  </mat-form-field> -->
+  <button (click)="getLocation()" mat-raised-button color="warn" type="button">Get current location</button>
   <button class="whole" id="button" mat-raised-button color="primary" type="submit">Join Lavadoo</button>
 </form>
